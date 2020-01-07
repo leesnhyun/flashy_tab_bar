@@ -1,8 +1,8 @@
 name: flashy_tab_bar
 description: One another nice animated tabbar (Inspired by Cuberto)
 version: 0.0.1
-author:
-homepage:
+author: SengHyun Lee <leesnhyun@gmail.com>
+homepage: https://github.com/leesnhyun/flashy_tab_bar
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
