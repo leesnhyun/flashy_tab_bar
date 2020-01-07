@@ -8,7 +8,7 @@ One another nice animated tabbar (Inspired by Cuberto)
 ## Preview
 | Android              | iOS                  |
 | :------------------- | -------------------: |
-| ![Android](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/emulator-android.gif)  | ![iOS](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/emulator-ios.gif) |
+| <img src="https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/emulator-android.gif" height="714">  | <img src="https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/emulator-ios.gif" height="714"> |
 
 
 ## Getting Started
@@ -31,11 +31,11 @@ bottomNavigationBar: FlashyTabBar(
        _selectedIndex = index;
      }),
      items: [
-       FlashyTabBarItem(
-           icon: Icon(Icons.event),
-       title: Text('Events'),
-       ),
-       FlashyTabBarItem(
+        FlashyTabBarItem(
+          icon: Icon(Icons.event),
+          title: Text('Events'),
+        ),
+        FlashyTabBarItem(
           icon: Icon(Icons.search),
           title: Text('Search'),
         ),
