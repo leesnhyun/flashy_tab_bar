@@ -5,7 +5,11 @@ One another nice animated tabbar (Inspired by Cuberto)
 
 ![Animation](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/animation.gif)
 
-![Android](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/emulator.gif)
+## Preview
+| Android              | iOS                  |
+| :------------------- | -------------------: |
+| ![Android](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/emulator-android.gif)  | ![iOS](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/emulator-ios.gif) |
+
 
 ## Getting Started
 
@@ -28,10 +32,10 @@ bottomNavigationBar: FlashyTabBar(
      }),
      items: [
        FlashyTabBarItem(
-       icon: Icon(Icons.event),
+           icon: Icon(Icons.event),
        title: Text('Events'),
-     ),
-     FlashyTabBarItem(
+       ),
+       FlashyTabBarItem(
           icon: Icon(Icons.search),
           title: Text('Search'),
         ),
