@@ -5,6 +5,8 @@ One another nice animated tabbar (Inspired by Cuberto)
 
 ![Animation](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/animation.gif)
 
+![Android](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/emulator.gif)
+
 ## Getting Started
 
 Add the dependency at pubspec.yaml:
