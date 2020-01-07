@@ -1,14 +1,50 @@
 # flashy_tab_bar
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Cuberto/flashy-tabbar-android/master/LICENSE)
 
 One another nice animated tabbar (Inspired by Cuberto)
 
+![Animation](https://raw.githubusercontent.com/leesnhyun/flashy_tab_bar/master/docs/animation.gif)
+
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+Add the dependency at pubspec.yaml:
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```yaml
+dependencies:
+  ...
+  flashy_tab_bar: ^0.0.1
+```
+
+## Basic Usage
+
+```dart
+bottomNavigationBar: FlashyTabBar(
+     selectedIndex: _selectedIndex,
+     showElevation: true,
+     onItemSelected: (index) => setState(() {
+       _selectedIndex = index;
+     }),
+     items: [
+       FlashyTabBarItem(
+       icon: Icon(Icons.event),
+       title: Text('Events'),
+     ),
+     FlashyTabBarItem(
+          icon: Icon(Icons.search),
+          title: Text('Search'),
+        ),
+        FlashyTabBarItem(
+          icon: Icon(Icons.highlight),
+          title: Text('Highlights'),
+        ),
+        FlashyTabBarItem(
+          icon: Icon(Icons.settings),
+          title: Text('Settings'),
+        ),
+        FlashyTabBarItem(
+          icon: Icon(Icons.settings),
+          title: Text('한국어'),
+        ),
+      ],
+),
+```
