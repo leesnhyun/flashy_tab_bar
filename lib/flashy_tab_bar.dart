@@ -59,16 +59,17 @@ class FlashyTabBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: items.map((item) {
               var index = items.indexOf(item);
-              return GestureDetector(
-                onTap: () => onItemSelected(index),
-                child: _FlashTabBarItem(
-                  item: item,
-                  tabBarHeight: this.height,
-                  iconSize: iconSize,
-                  isSelected: index == selectedIndex,
-                  backgroundColor: bg,
-                  animationDuration: animationDuration,
-                  animationCurve: animationCurve,
+              return Expanded(child: GestureDetector(
+                  onTap: () => onItemSelected(index),
+                  child: _FlashTabBarItem(
+                    item: item,
+                    tabBarHeight: this.height,
+                    iconSize: iconSize,
+                    isSelected: index == selectedIndex,
+                    backgroundColor: bg,
+                    animationDuration: animationDuration,
+                    animationCurve: animationCurve,
+                  ),
                 ),
               );
             }).toList(),
