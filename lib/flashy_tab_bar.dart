@@ -10,6 +10,7 @@ class FlashyTabBar extends StatelessWidget {
   final bool showElevation;
   final Duration animationDuration;
   final Curve animationCurve;
+  final List<BoxShadow> shadows;
 
   final List<FlashyTabBarItem> items;
   final ValueChanged<int> onItemSelected;
@@ -23,6 +24,12 @@ class FlashyTabBar extends StatelessWidget {
     this.backgroundColor,
     this.animationDuration = const Duration(milliseconds: 170),
     this.animationCurve = Curves.linear,
+    this.shadows = const [
+      const BoxShadow(
+        color: Colors.black12,
+        blurRadius: 3,
+      ),
+    ],
     @required this.items,
     @required this.onItemSelected,
   }) {
@@ -42,12 +49,7 @@ class FlashyTabBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: bg,
         boxShadow: showElevation
-            ? [
-                const BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 3,
-                ),
-              ]
+            ? shadows
             : [],
       ),
       child: SafeArea(
@@ -59,7 +61,8 @@ class FlashyTabBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: items.map((item) {
               var index = items.indexOf(item);
-              return Expanded(child: GestureDetector(
+              return Expanded(
+                child: GestureDetector(
                   onTap: () => onItemSelected(index),
                   child: _FlashTabBarItem(
                     item: item,
