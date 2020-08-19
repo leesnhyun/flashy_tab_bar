@@ -13,6 +13,14 @@ class _MyAppState extends State<MyApp> {
 
   int _selectedIndex = 0;
 
+  List<Widget> tabItems = [
+    Center(child: Text("0")),
+    Center(child: Text("1")),
+    Center(child: Text("2")),
+    Center(child: Text("3")),
+    Center(child: Text("4"))
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -23,15 +31,15 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Flashy Tabbar (Flutter)'),
         ),
         body: Center(
-          child: Text('FlashyTabBar (Flutter Version)'),
+          child: tabItems[_selectedIndex],
         ),
         bottomNavigationBar: FlashyTabBar(
           animationCurve: Curves.linear,
           selectedIndex: _selectedIndex,
-          showElevation: true, // use this to remove appBar's elevation
+          showElevation: false, // use this to remove appBar's elevation
           onItemSelected: (index) => setState(() {
             _selectedIndex = index;
           }),
