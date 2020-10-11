@@ -16,6 +16,7 @@ class FlashyTabBar extends StatelessWidget {
   final ValueChanged<int> onItemSelected;
 
   FlashyTabBar({
+    // ignore: avoid_unused_constructor_parameters
     Key key,
     this.selectedIndex = 0,
     this.height = 60,
@@ -25,7 +26,7 @@ class FlashyTabBar extends StatelessWidget {
     this.animationDuration = const Duration(milliseconds: 170),
     this.animationCurve = Curves.linear,
     this.shadows = const [
-      const BoxShadow(
+      BoxShadow(
         color: Colors.black12,
         blurRadius: 3,
       ),
@@ -33,10 +34,10 @@ class FlashyTabBar extends StatelessWidget {
     @required this.items,
     @required this.onItemSelected,
   }) {
-    assert(items != null);
-    assert(height >= 55 && height <= 100);
-    assert(items.length >= 2 && items.length <= 5);
-    assert(onItemSelected != null);
+    assert(items != null); // ignore: prefer_asserts_in_initializer_lists
+    assert(height >= 55 && height <= 100);// ignore: prefer_asserts_in_initializer_lists
+    assert(items.length >= 2 && items.length <= 5);// ignore: prefer_asserts_in_initializer_lists
+    assert(onItemSelected != null);// ignore: prefer_asserts_in_initializer_lists
   }
 
   @override
@@ -55,18 +56,18 @@ class FlashyTabBar extends StatelessWidget {
       child: SafeArea(
         child: Container(
           width: double.infinity,
-          height: this.height,
+          height: height,
           padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: items.map((item) {
-              var index = items.indexOf(item);
+              final index = items.indexOf(item);
               return Expanded(
                 child: GestureDetector(
                   onTap: () => onItemSelected(index),
                   child: _FlashTabBarItem(
                     item: item,
-                    tabBarHeight: this.height,
+                    tabBarHeight: height,
                     iconSize: iconSize,
                     isSelected: index == selectedIndex,
                     backgroundColor: bg,
@@ -96,8 +97,8 @@ class FlashyTabBarItem {
     this.activeColor = const Color(0xff272e81),
     this.inactiveColor = const Color(0xff9496c1),
   }) {
-    assert(icon != null);
-    assert(title != null);
+    assert(icon != null);// ignore: prefer_asserts_in_initializer_lists
+    assert(title != null);// ignore: prefer_asserts_in_initializer_lists
   }
 }
 
@@ -140,6 +141,7 @@ class _FlashTabBarItem extends StatelessWidget {
           children: <Widget>[
             AnimatedAlign(
               duration: animationDuration,
+              alignment: isSelected ? Alignment.topCenter : Alignment.center,
               child: AnimatedOpacity(
                   opacity: isSelected ? 1.0 : 1.0,
                   duration: animationDuration,
@@ -148,12 +150,9 @@ class _FlashTabBarItem extends StatelessWidget {
                         size: iconSize,
                         color: isSelected
                             ? item.activeColor.withOpacity(1)
-                            : item.inactiveColor == null
-                                ? item.activeColor
-                                : item.inactiveColor),
+                            : item.inactiveColor ?? item.activeColor),
                     child: item.icon,
                   )),
-              alignment: isSelected ? Alignment.topCenter : Alignment.center,
             ),
             AnimatedPositioned(
               curve: animationCurve,
@@ -167,11 +166,11 @@ class _FlashTabBarItem extends StatelessWidget {
                     height: iconSize,
                   ),
                   CustomPaint(
+                    painter: _CustomPath(backgroundColor),
                     child: Container(
                       width: 80,
                       height: iconSize,
                     ),
-                    painter: _CustomPath(backgroundColor),
                   )
                 ],
               ),
@@ -194,11 +193,11 @@ class _FlashTabBarItem extends StatelessWidget {
             Positioned(
                 bottom: 0,
                 child: CustomPaint(
+                  painter: _CustomPath(backgroundColor),
                   child: Container(
                     width: 80,
                     height: iconSize,
                   ),
-                  painter: _CustomPath(backgroundColor),
                 )),
             Align(
               alignment: Alignment.bottomCenter,
@@ -209,7 +208,7 @@ class _FlashTabBarItem extends StatelessWidget {
                     width: 5,
                     height: 5,
                     alignment: Alignment.bottomCenter,
-                    margin: EdgeInsets.all(5),
+                    margin: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       color: item.activeColor,
                       borderRadius: BorderRadius.circular(2.5),
@@ -228,8 +227,8 @@ class _CustomPath extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Path path = Path();
-    Paint paint = Paint();
+    final Path path = Path();
+    final Paint paint = Paint();
 
     path.lineTo(0, 0);
     path.lineTo(0, 2.0 * size.height);
@@ -238,7 +237,7 @@ class _CustomPath extends CustomPainter {
     path.lineTo(0, 0);
     path.close();
 
-    paint.color = this.backgroundColor;
+    paint.color = backgroundColor;
     canvas.drawPath(path, paint);
   }
 
